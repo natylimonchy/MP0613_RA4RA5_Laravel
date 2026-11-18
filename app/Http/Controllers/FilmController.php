@@ -117,6 +117,16 @@ class FilmController extends Controller
 
     }
 
+    public function sortFilms() {
+        $title = "Listado de Pelis Nuevas a antiguas";
+        $films = FilmController::readFilms();
+
+        usort($films, fn($a, $b) => $b['year'] <=> $a['year'] );
+
+        return view("films.list", ["films" => $films, "title" => $title]);
+
+    }
+
 
 
 }
