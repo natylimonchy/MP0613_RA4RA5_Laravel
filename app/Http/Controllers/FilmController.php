@@ -81,4 +81,42 @@ class FilmController extends Controller
         }
         return view("films.list", ["films" => $films_filtered, "title" => $title]);
     }
+
+
+    public function listFilmsByYear ($year = null){
+        $films_filtered = [];
+        $title = "Listado de las pelis por año";
+        $films = FilmController::readFilms();
+
+        if (is_null($year))
+            return view('films.list', ["films" => $films, "title" => $title]);
+
+        foreach ($films as $film){
+            if ((!is_null($year)) && $film['year'] == $year){
+                $title = "Listado de todas las pelis filtrado x año";
+                $films_filtered[] = $film;}
+        }
+        return view("films.list", ["films" => $films_filtered, "title" => $title]);
+    }
+
+    public function listFilmsByGender ($genre = null){
+        $films_filtered = [];
+        $title = "Listado de las pelis por genero";
+        $films = FilmController::readFilms();
+
+        if (is_null($genre))
+            return view('films.list', ["films" => $films, "title" => $title]);
+
+        foreach ($films as $film){
+            if ((!is_null($genre)) && strtolower($film['genre']) == strtolower($genre)){
+                $title = "Listado de todas las pelis filtrado x año";
+                $films_filtered[] = $film;}
+        }
+        return view("films.list", ["films" => $films_filtered, "title" => $title]);
+
+
+    }
+
+
+
 }
