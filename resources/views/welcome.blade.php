@@ -22,6 +22,7 @@
         <li><a href=/filmout/year>Pelis por año</a></li>
         <li><a href=/filmout/genre>Pelis por genero</a></li>
         <li><a href=/filmout/sortFilms>Pelis de nuevas a antiguas</a></li>
+        <li><a href=/filmout/countFilms>Contador de pelis</a></li>
     </ul>
     <!-- Add Bootstrap JS and Popper.js (required for Bootstrap) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
